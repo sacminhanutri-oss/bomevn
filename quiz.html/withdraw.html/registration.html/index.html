@@ -246,19 +246,27 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--fg);min-h
   var expiryInt  = null;
 
   // Loading state no botão de taxa
-  btnRealizar.addEventListener('click', function(){
+btnRealizar.addEventListener('click', function () {
     btnRealizar.classList.add('loading');
     btnRealizar.innerHTML = '<div class="spinner"></div> Verificando...';
-    setTimeout(function(){
-      secaoTaxa.style.display = 'none';
-      secaoVsl.style.display  = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      video.play().catch(function(){
-        video.muted = true;
-        video.play().then(function(){ video.muted = false; }).catch(function(){});
-      });
+
+    setTimeout(function () {
+        secaoTaxa.style.display = 'none';
+        secaoVsl.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Inicia o vídeo
+        video.muted = false;
+        video.currentTime = 0;
+
+        video.play().catch(function () {
+            // Se o navegador bloquear o áudio, reproduz mudo
+            video.muted = true;
+            video.play();
+        });
+
     }, 800);
-  });
+});
 
   // Fallback se vídeo falhar ao carregar
   video.addEventListener('error', function(){
