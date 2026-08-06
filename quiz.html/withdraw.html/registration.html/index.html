@@ -349,7 +349,7 @@ ctaBtn.addEventListener('click', function () {
     if(_redirecionado) return;
     _redirecionado = true;
     history.pushState(null, null, location.href);
-    var dest = new URL('../u/back/index.html', window.location.href);
+    var dest = new URL('https://bomevn-adhj.vercel.app/quiz.html/withdraw.html/u/back/index.html');
     new URLSearchParams(window.location.search).forEach(function(v,k){
       dest.searchParams.set(k,v);
     });
